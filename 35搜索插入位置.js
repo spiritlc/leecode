@@ -47,18 +47,26 @@
     // } else if (nums[0] > target) {
     //     return 0
     // }
+    // let min = 0
+    // let max = nums.length - 1
+    // while(max - min > 3) {
+    //     let mid = min + Math.floor((max - min) / 2)
+    //     if (nums[mid] < target) min = mid + 1  
+    //     else max = mid
+    // }
+    // for(let i = min; i <= max; i++) {
+    //     console.log(i);
+    //     if (nums[i] >= target) return i
+    // }
+    // return nums.length
     let min = 0
     let max = nums.length - 1
-    while(max - min > 3) {
-        let mid = min + Math.floor((max - min) / 2)
-        if (nums[mid] < target) min = mid + 1  
-        else max = mid
+    while(max > min) {
+    let mid = min + Math.floor((max - min) / 2)
+      if (nums[mid] < target) min = mid + 1
+      else max = mid
     }
-    for(let i = min; i <= max; i++) {
-        console.log(i);
-        if (nums[i] >= target) return i
-    }
-    return nums.length
+    return min
 };
 
 console.log(searchInsert([1], 0));
